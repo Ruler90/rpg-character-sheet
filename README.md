@@ -1,8 +1,8 @@
-# rpg-character-sheet
+# RPG Character Sheet
  
-Project started on July 2019 and finished on August 21, 2019.
+Project started on July 2019 (don't remember when exactly) and finished on August 21, 2019.
 
-It's the RPG Character Sheet made with pure HTML, CSS and JS. No libraries used.
+Made with pure HTML, CSS and JS. No libraries used.
 
 Funcionalities:
 - add character's name
