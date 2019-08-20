@@ -1,0 +1,63 @@
+.animation__slideFromLeftToRight {
+    position: absolute;
+    animation-name: slideFromLeftToRight;
+    animation-duration: 400ms;
+    animation-timing-function: linear;
+  }
+  
+  @keyframes slideFromLeftToRight {
+    0% {
+      left: -251px;
+    }
+    100% {
+      left: 0px;
+    }
+  }
+  
+  .animation__slideFromZeroToRight {
+    position: absolute;
+    animation-name: slideFromZeroToRight;
+    animation-duration: 400ms;
+    animation-timing-function: linear;
+  }
+  
+  @keyframes slideFromZeroToRight {
+    0% {
+      left: 0px;
+    }
+    100% {
+      left: 251px;
+    }
+  }
+
+.animation__slideFromRightToLeft {
+    position: absolute;
+    animation-name: slideFromRightToLeft;
+    animation-duration: 400ms;
+    animation-timing-function: linear;
+  }
+  
+  @keyframes slideFromRightToLeft {
+    0% {
+      left: 251px;
+    }
+    100% {
+      left: 0px;
+    }
+  }
+  
+  .animation__slideFromZeroToLeft {
+    position: absolute;
+    animation-name: slideFromZeroToLeft;
+    animation-duration: 400ms;
+    animation-timing-function: linear;
+  }
+  
+  @keyframes slideFromZeroToLeft {
+    0% {
+      left: 0px;
+    }
+    100% {
+      left: -251px;
+    }
+  }

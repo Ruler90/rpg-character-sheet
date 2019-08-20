@@ -1,0 +1,119 @@
+body {
+  background: #271A26;
+  color: #F1F2F0;
+  font-size: 1.1em;
+}
+
+.mainContent {
+  max-width: 950px;
+  min-height: 550px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  margin: 0 auto;
+}
+
+legend {
+  color: #C4824D;
+}
+
+fieldset {
+  border: 1px solid #C4824D;
+}
+
+.withBorder {
+  border: 1px solid #C4824D;
+  padding: 1px;
+}
+
+.flex--center {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.attributesBox {
+  max-width: 270px;
+  height: 500px;
+  margin: 5px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.fieldset__width {
+  width: 74%;
+}
+
+.attributeLabel {
+  width: 100px;
+  display: flex;
+  justify-content: flex-end;
+  line-height: 30px;
+}
+
+.middleBox {
+  max-width: 340px;
+  min-height: 500px;
+  margin: 5px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.imgBox {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.charPortrait {
+  width: 250px;
+  height: 350px;
+  margin: 2px;
+  overflow: hidden;
+  position: relative;
+}
+
+.charPortrait img {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.portraitHidden {
+  display: none;
+}
+
+.descriptionBox {
+  width: 280px;
+  min-height: 482px;
+  margin: 5px;
+  padding: 10px;
+}
+
+.descriptionBox p {
+  text-align: justify;
+}
+
+.hideDescription {
+  display: none;
+}
+
+@media screen and (max-width: 600px) {
+  .middleBox {
+    max-width: 340px;
+    min-height: 400px;
+  }
+  .charPortrait {
+    width: 200px;
+    height: 280px;
+  }
+  .descriptionBox {
+    width: 280px;
+    min-height: 430px;
+    font-size: 0.95em;
+  }
+}

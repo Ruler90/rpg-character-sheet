@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Character Sheet</title>
+
+    <link rel="stylesheet" href="styles/main.css" type="text/css">
+    <link rel="stylesheet" href="styles/inputsAndButtons.css" type="text/css">
+    <link rel="stylesheet" href="styles/animations.css" type="text/css">
+</head>
+
+<body>
+    <main class="mainContent">
+        <div class="attributesBox withBorder">
+
+            <fieldset class="fieldset__width">
+                <legend align="center">Name</legend>
+                <div class="flex--center"><input id="charName" type="text" style="text-align: center"></div>
+            </fieldset>
+
+            <fieldset class="fieldset__width">
+                <legend align="center">Gender</legend>
+                <div class="flex--center">
+                    <label><input id="genderMale" type="radio" value="male" name="genderSelect">Male</label>
+                    <label><input id="genderFemale" type="radio" value="female" name="genderSelect">Female</label>
+                    <label><input id="genderOther" type="radio" value="other" name="genderSelect">Other</label>
+                </div>
+            </fieldset>
+
+            <fieldset class="fieldset__width">
+                <legend align="center">Attributes</legend>
+                <input type="button" value="Random" class="button--mainProperties randomButton flex--center" onclick="generateRandom()">
+                <div class="flex--center"><label>Points Left<input id="pointsLeft" type="text" value="10" disabled
+                            class="attrValueInputs"></label></div>
+                <div class="flex--center"><label class="attributeLabel">Strength<input id="attr1" type="text" disabled
+                            class="attrValueInputs"></label>
+                    <input type="button" class="button--mainProperties disabledBtn btnAddRemove" value="+" disabled onclick="addAttr(1)">
+                    <input type="button" class=" button--mainProperties disabledBtn btnAddRemove" value="-" disabled onclick="subtractAttr(1)">
+                </div>
+                <div class="flex--center"><label class="attributeLabel">Dexterity<input id="attr2" type="text" disabled
+                            class="attrValueInputs"></label>
+                    <input type="button" class="button--mainProperties disabledBtn btnAddRemove" value="+" disabled onclick="addAttr(2)">
+                    <input type="button" class="button--mainProperties disabledBtn btnAddRemove" value="-" disabled onclick="subtractAttr(2)">
+                </div>
+                <div class="flex--center"><label class="attributeLabel">Stamina<input id="attr3" type="text" disabled
+                            class="attrValueInputs"></label>
+                    <input type="button" class="button--mainProperties disabledBtn btnAddRemove" value="+" disabled onclick="addAttr(3)">
+                    <input type="button" class="button--mainProperties disabledBtn btnAddRemove" value="-" disabled onclick="subtractAttr(3)">
+                </div>
+                <div class="flex--center"><label class="attributeLabel">Intelligence<input id="attr4" type="text"
+                            disabled class="attrValueInputs"></label>
+                    <input type="button" class="button--mainProperties disabledBtn btnAddRemove" value="+" disabled onclick="addAttr(4)">
+                    <input type="button" class="button--mainProperties disabledBtn btnAddRemove" value="-" disabled onclick="subtractAttr(4)">
+                </div>
+            </fieldset>
+
+            <fieldset>
+                <legend align="center">Race</legend>
+                <div class="radioButtons--centered">
+                    <div><label><input id="race1" class="disabledBtn raceNotUsed raceRadioBtn" type="radio"
+                                value="option 1" name="attrSelect" disabled>Human</label></div>
+                    <div><label><input id="race2" class="disabledBtn raceNotUsed raceRadioBtn" type="radio"
+                                value="option 2" name="attrSelect" disabled>Elf</label></div>
+                    <div><label><input id="race3" class="disabledBtn raceNotUsed raceRadioBtn" type="radio"
+                                value="option 3" name="attrSelect" disabled>Dwarf</label></div>
+                    <div><label><input id="race4" class="disabledBtn raceNotUsed raceRadioBtn" type="radio"
+                                value="option 4" name="attrSelect" disabled>Dark Elf</label></div>
+                </div>
+            </fieldset>
+
+            <fieldset>
+                <legend align="center">Class</legend>
+                <div class="radioButtons--centered">
+                    <div><label><input id="class1" class="disabledBtn classNotUsed classRadioBtn" type="radio"
+                                value="option 1" name="classSelect" disabled>Warrior</label>
+                    </div>
+                    <div><label><input id="class2" class="disabledBtn classNotUsed classRadioBtn" type="radio"
+                                value="option 2" name="classSelect" disabled>Ranger</label>
+                    </div>
+                    <div><label><input id="class3" class="disabledBtn classNotUsed classRadioBtn" type="radio"
+                                value="option 3" name="classSelect" disabled>Mage</label>
+                    </div>
+                    <div><label><input id="class4" class="disabledBtn classNotUsed classRadioBtn" type="radio"
+                                value="option 4" name="classSelect" disabled>Assassin</label>
+                    </div>
+                </div>
+            </fieldset>
+        </div>
+
+        <div class="middleBox withBorder">
+
+            <fieldset>
+                <legend align="center">Stats</legend>
+                <label>HP<input id="attrHP" type="text" disabled class="attrValueInputs"></label>
+                <label>Atk<input id="attrAtk" type="text" disabled class="attrValueInputs"></label>
+                <label>Def<input id="attrDef" type="text" disabled class="attrValueInputs"></label>
+                <label>Mag<input id="attrMag" type="text" disabled class="attrValueInputs"></label>
+            </fieldset>
+
+            <div class="imgBox">
+                <input type="button" class="button--mainProperties changeImgBtn" value="&larr;" onclick="previousPortrait()"/>
+                <div class="charPortrait">
+                    <img src="img/emptyPortrait.jpg" class="emptyPortrait" alt="empty character portrait">
+                    <img src="img/Males/Male_01_by_Dropdeadcoheed.jpg" class="portraits portraitHidden" alt="character portrait">
+                    <img src="img/Males/Male_02_by_LoranDeSore.jpg" class="portraits portraitHidden" alt="character portrait">
+                    <img src="img/Males/Male_03_by_LoranDeSore.jpg" class="portraits portraitHidden" alt="character portrait">
+                    <img src="img/Males/Male_04_by_LoranDeSore.jpg" class="portraits portraitHidden" alt="character portrait">
+                    <img src="img/Males/Male_05_by_LoranDeSore.jpg" class="portraits portraitHidden" alt="character portrait">
+                    <img src="img/Males/Male_06_by_thegryph.jpg" class="portraits portraitHidden" alt="character portrait">
+                    <img src="img/Males/Male_07_by_phoenixlu.jpg" class="portraits portraitHidden" alt="character portrait">
+                    <img src="img/Males/Male_08_by_JoeSlucher.jpg" class="portraits portraitHidden" alt="character portrait">
+                    <img src="img/Males/Male_09_by_LozanoX.jpg" class="portraits portraitHidden" alt="character portrait">
+                    <img src="img/Males/Male_10_by_Valentina-Remenar.jpg" class="portraits portraitHidden" alt="character portrait">
+                    <img src="img/Males/Male_11_by_Takeda11.jpg" class="portraits portraitHidden" alt="character portrait">
+                    <img src="img/Males/Male_12_by_000Fesbra000.jpg" class="portraits portraitHidden" alt="character portrait">
+                    <img src="img/Females/Female_01_by_Dropdeadcoheed.jpg" class="portraits portraitHidden" alt="character portrait">
+                    <img src="img/Females/Female_02_by_Dropdeadcoheed.jpg" class="portraits portraitHidden" alt="character portrait">
+                    <img src="img/Females/Female_03_by_Dropdeadcoheed.jpg" class="portraits portraitHidden" alt="character portrait">
+                    <img src="img/Females/Female_04_by_Dropdeadcoheed.jpg" class="portraits portraitHidden" alt="character portrait">
+                    <img src="img/Females/Female_05_by_Dropdeadcoheed.jpg" class="portraits portraitHidden" alt="character portrait">
+                    <img src="img/Females/Female_06_by_cloudintrousers.jpg" class="portraits portraitHidden" alt="character portrait">
+                    <img src="img/Females/Female_07_by_jennyshiii.jpg" class="portraits portraitHidden" alt="character portrait">
+                    <img src="img/Females/Female_08_by_anna-lakisova.jpg" class="portraits portraitHidden" alt="character portrait">
+                    <img src="img/Females/Female_09_by_mlappas.jpg" class="portraits portraitHidden" alt="character portrait">
+                    <img src="img/Females/Female_10_by_Sarasti-art.jpg" class="portraits portraitHidden" alt="character portrait">
+                    <img src="img/Females/Female_11_by_greyhues.jpg" class="portraits portraitHidden" alt="character portrait">
+                    <img src="img/Females/Female_12_by_000Fesbra000.jpg" class="portraits portraitHidden" alt="character portrait">
+                </div>
+                <input type="button" class="button--mainProperties changeImgBtn" value="&rarr;" onclick="nextPortrait()" />
+            </div>
+
+        </div>
+
+        <div class="descriptionBox withBorder">
+            <p class="hideDescription raceDescr1"><span style="font-weight: 900">Human</span><br />Humans are the
+                most adaptable and ambitious people
+                among the common races. Individually and as a group, humans are adaptable opportunists, and they
+                stay alert to changing political and social dynamics.<br />
+                <span style="color: rgb(74, 74, 250)">No attribute modifiers</span></p>
+            <p class="hideDescription raceDescr2"><span style="font-weight: 900">Elf</span><br />Elves are a
+                long-lived humanoid race, more slender and
+                agile than humans. They can be distinguished by their large, keen eyes and their pointed ears. They
+                have a close kinship with both nature and magic.<br />
+                <span style="color: rgb(20, 219, 20)">Dexterity +1, Intelligence +2</span><br />
+                <span style="color: red">Strength -2, Stamina -1</span></p>
+            <p class="hideDescription raceDescr3"><span style="font-weight: 900">Dwarf</span><br />The dwarves are
+                an old race, as old as the earth
+                itself. They are stubborn and set in their ways, but only because their ways have historically
+                worked well for them. They are usually miners, blacksmiths and warriors.<br />
+                <span style="color: rgb(20, 219, 20)">Strength +2, Stamina +1</span><br />
+                <span style="color: red">Dexterity -2, Intelligence -1</span></p>
+            <p class="hideDescription raceDescr4"><span style="font-weight: 900">Dark Elf</span><br />Dark Elves are
+                one of the most ancient, powerful,
+                and certainly the most deadly living race. They live in underground cities and they are do anything
+                to protect their secrets. They are great spies and assassins.<br />
+                <span style="color: rgb(20, 219, 20)">Dexterity +2, Stamina +1</span><br />
+                <span style="color: red">Strength -1, Intelligence -2</span></p>
+            <p class="hideDescription classDescr1"><span style="font-weight: 900">Warrior</span><br />Warriors put
+                emphasis on strength and physical
+                combat. Wielding melee weapons, they typically lack range, or have only limited ranged attack
+                options, but they excel at fighting enemies in close range combat, often having high HP, defense,
+                and attack capabilities to aid in this.<br />
+                <span style="color: rgb(20, 219, 20)">Strength +2, Stamina +1</span><br />
+                <span style="color: red">Intelligence -2, Dexterity -1</span></p>
+            <p class="hideDescription classDescr2"><span style="font-weight: 900">Ranger</span><br />Rangers are
+                usually associated with the wisdom of nature. Rangers spend a great deal of time hunting, fishing,
+                and camping - whether on a short- or long-term basis. They prefer ranged weapons.<br />
+                <span style="color: rgb(20, 219, 20)">Dexterity +2, Stamina +1</span><br />
+                <span style="color: red">Strength -2, Intelligence -1</span></p>
+            <p class="hideDescription classDescr3"><span style="font-weight: 900">Mage</span><br />Mages are a
+                "genius students" of arcane magic, who have studied the subject for years. They are considered to be
+                spellcasters who wield powerful spells, but are often physically weak as a trade-off. <br />
+                <span style="color: rgb(20, 219, 20)">Stamina +1, Intelligence +2</span><br />
+                <span style="color: red">Strength -2, Dexterity -1</span></p>
+            <p class="hideDescription classDescr4"><span style="font-weight: 900">Assassin</span><br />Assassins
+                typically combine combat ability with strong stealth skills, and specialise in defeating an enemy
+                without becoming involved in a protracted melee. They are using weapons that are small, lightweight,
+                and often concealable.<br />
+                <span style="color: rgb(20, 219, 20)">Strength +1, Dexterity +2</span><br />
+                <span style="color: red">Stamina -1, Intelligence -2</span></p>
+        </div>
+    </main>
+
+    <script src="scripts/charAttributes.js"></script>
+    <script src="scripts/portraits.js"></script>
+    <script src="scripts/description.js"></script>
+
+</body>
+
+</html>

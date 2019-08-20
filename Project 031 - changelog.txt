@@ -1,0 +1,223 @@
+
+###################################
+
+v1.0.0 - 20.08.2019
+
+- Zmieniłem kolorystykę całości. Ostylowałem brakujące elementy (m.in. buttony + hover, focus, active).
+
+- Dodałem Media Query, żeby lekko poprawić wygląd dla RWD. Nie jestem z niego zadowolony, bo nie widzę opcji, żeby zrobić to w jakiś logiczny sposób - teraz jest tak, że losując atrybuty i wybierając rasę/klasę widać od razu jak wpływa to na punkty statystyk (HP, Atk, Def, Mag), ale trzeba za to scrollować do opisu na dół. Nie poprawiam dalej - w tym projekcie chodzi o mechanikę, a nie wygląd na małych ekranach.
+
+- Próbowałem skrócić kod animacji obrazów opierając go na klasach animacji i wykluczając klasę portraitHidden, ale w żaden sposób nie udało się tego zmusić do działania.
+
+###################################
+
+v0.9.7 - 19.08.2019
+
+- Usunąłem z kodu HTML nieużywane klasy portrait1, 2, 3 itd.
+
+- Dodałem nowy plik animations.css, w którym są animacje do zmiany portretów. Dzięki animacjom oraz position: relative i position: absolute udało się uzyskać efekt slidera -> jedno zdjęcie "wyjeżdża" z diva i od razu za nim pojawia się kolejne. Div ma overflow: hidden, dlatego portrety od razu znikają za jego ramką.
+
+- Został rozbudowany kod buttonów do zmiany portretów (każdy ma teraz po 30 linii) -> mamy 4 klasy animacji: ruch spoza ramki w lewo i w prawo oraz ruch obecnego obrazu w prawo lub lewo poza ramkę. Animacje nakładane są jednocześnie na obecny obraz oraz poprzedni/następny, aby uzyskać efekt przesuwania slajdu. Musiałem jeszcze dodać setTimeout usuwający klasę z animacją zaraz po jej zakończeniu, ponieważ w pewnym momencie klasy zaczynały nakładać się na siebie psując cały efekt.
+
+- Zostawiam w pliku charAttributes.js 2 console.logi służące sprawdzeniu, czy wygenerowane wartości są prawidłowe po zaznaczeniu radio buttonów oraz przy dodawaniu/odejmowaniu punktów.
+
+###################################
+
+v0.9.5 - 18.08.2019
+
+- Dodałem w HTMLu obrazy dla portretów i ustawiłem im w CSS max-width: 100% oraz max-height: 100%, żeby automatycznie dopasowywały się do diva zawierającego obraz.
+
+- Dodałem "początkowy" pusty portret z białym znakiem zapytania na czarnym tle.
+
+- Dodałem plik portraits.js, w którym dodałem funkcje do wybierania następnego / poprzedniego obrazu i przypisałem je do buttonów po bokach portretów. Funkcje opierają się na klasie portraitHidden, która daje display: none konkretnemu obrazowi (początkowo mają ją wszystkie portrety poza emptyPortrait). Najpierw zostaje wykluczony emptyPortrait, żeby nie pokazywał się do odświeżenia strony. Następnie dla kolejnego/poprzedniego obrazu zostaje wyłączony portraitHidden oraz włączony dla obecnego. Gdy dotrzemy do pierwszego obrazu i chcemy cofnąć się do poprzedniego lub przy ostatnim chcemy przejść do pierwszego nadawanie klas działa analogicznie i mamy efekt pętli. 
+
+- Dopasowałem rozmiary obrazów, aby dokładnie wpasowały się w container, nawet gdy są większe niż 250x350px.
+
+- Zmieniłem tło na ciemne i font na biały.
+
+###################################
+
+v0.9.3 - 17.08.2019
+
+- Zmieniłem obiekt ourCharacter z const na var, dzięki czemu można go użyć w innych plikach js w projekcie.
+
+- Dodałem eventListener do inputa name, żeby dodawał podane name do obiektu ourCharacter i robił update przy każdej zmianie (trzeba opuścić focus z pola tekstowego po zmianach).
+
+- Dodałem eventListener do radio buttonów wyboru płci, żeby dodawały odpowiednią płeć do obiektu ourCharacter i robiły upadate przy każdej zmianie.
+
+- Dla zmian charStats: HP, Atk, Def i Mag nie można użyć eventListenera przypisanego do zmian charAttrs, ponieważ nie działa to na inputy z disabled. Dodałem funkcję charStatsChange(), która najpierw używa funkcji getActualAttrValues i potem na ich podstawie podmienia wartości charStats. Została wrzucona do Random buttona, opcji dodawania i odejmowania punktów z puli oraz eventListenerów dla rasy, klasy -> charStats przeliczają się przy każdej zmianie.
+
+- Zwiększyłem nieco width całości oraz middleBoxa, żeby zamknąć charStats w fieldset zamiast w divie.
+
+- Dodałem w HTMLu do tagu legend atrybut align: center i usunąłem text-align: center z css - dzięki temu wyśrodkowanie będzie też w Firefoxie.
+
+###################################
+
+v0.9.0 - 11.08.2019
+
+- Dodałem mechanikę zmian atrybutów przy pozostałych 3 klasach postaci oraz opisy dla nich. Zostaję przy wersji z opisami w HTMLu. Myślałem jeszcze nad temaplate strings, ale nie znalazłem nigdzie odpowiedzi, żeby można było stylować wybrane fragmenty template stringa.
+
+- Dodałem do odpowiednich case'ów dla race i class, żeby były dodawane nowe elementy do obiektu ourCharacter, np. race = "Human", class = "Warrior".
+
+- Dodałem fieldset dla wyboru gender.
+
+- Dodałem input dla Name.
+
+- Zmieniłem nazwę klasy CSS .finalAttr na .attrValueInputs.
+
+- Zmieniłem nieco wygląd, aby fieldsety z klasą i rasą były obok siebie - dzięki temu po dodaniu na górze inputa dla name nie zwiększyło to height całości.
+
+- Usunąłem jeden z głównych divów na main, dzięki czemu usunałem 1 niepotrzebny poziom zagnieżdżenia.
+
+###################################
+
+v0.8.8 - 10.08.2019
+
+- W kodzie HTML dodałem inputy z HP, Atk, Def, Mag w których podane informacje będą uzależnione od wartości poszczególnych atrybutów. Częściowo poprawiłem mechanikę oraz kod - inne wartości zmian atrybutów.
+
+- Dodałem opisy poszczególnych ras i jednej klasy oraz info o zmianach atrybutów dla nich. W przygotowaniu to samo dla pozostałych 3 klas.
+
+- Dla rasy Human usunąłem zmiany atrybutów.
+
+- Nieco zmieniłem kod CSS i HTML, żeby mieć lepszą kontrolę nad poszczególnymi częściami opcji zmieniających atrybuty. Wyśrodkowałem atrybuty, rasy i klasy za pomocą odpowiednich stylów, bo przy centrowaniu np. radio buttony nie były dokładnie jeden pod drugim. To samo było po zmianie Attr1, 2, 3, 4 na właściwe nazwy Strength itp. -> inputy z wartościami oraz przyciski +/- nie były dokładnie pod sobą. 
+
+###################################
+
+v0.8.5 - 09.08.2019
+
+- Przeniosłem button Random do fieldset Final Attributes.
+
+- Dodałem stylowanie dla  .attributesBox fieldset div, .attributesBox fieldset input[type=button] oraz btnAddRemove
+
+- zmieniłem stworzone w v0.6.0 arraye raceUsed i classUsed zawierające false/true oraz pętle forEach używane przy zmianach atrybutów na podstawie zaznaczenia radio buttonów na pętle for. Teraz w kodzie HTML radio buttony posiadają odpowiednio klasy raceNotUsed oraz classNotUsed (jako ich stan początkowy).
+Na przykładzie race: eventListener przy zaznaczeniu radio buttona wywołuje najpierw funkcję uncheckedRacePointsReset() i sprawdza po kolei wszystkie radio buttony tego typu, czy któryś posiada klasę raceUsed. Jeśli ją znajdzie, to usuwa ją i dodaje raceNotUsed i potem stosuje przeliczenie atrybutów odwrotne do tego, które zostało użyte po zaznaczeniu radio buttona z klasą raceUsed. Potem odpalana jest dalsza część eventListenera - usunięcie klasy raceNotUsed i dodanie raceUsed dla aktualnego radio buttona, pobranie aktualnych wartości atrybutów, przeliczenie ich zgodnie z nowym radio buttonem i zamiana w odpowiednich polach. Analogicznie jest przy class.
+Dzięki temu potrzeba będzie mniej zmian w kodzie, jeśli w przyszłości byłyby dodawane nowe atrybuty - powinno wystarczyć dodanie ich w HTMLu, a w JSie wystarczy rozpisać nowe case'y dla race/classAttrChange.
+
+###################################
+
+v0.8.2 - 08.08.2019
+
+- Dodałem pole na portret postaci oraz buttony do zmiany na kolejny/następny.
+
+###################################
+
+v0.8.0 - 07.08.2019
+
+- Dodałem nowy plik description.js, żeby nie rozbudowywać podstawowego bez końca. Dodane są tam dwie metody podmiany opisu po kliknięciu konkretnego radio buttona:
+  - pierwsza metoda to paragrafy w HTMLu z odpowiednimi klasami - przy kliknięciu eventListener dodaje dodaje klasę z display:none do wszystkich paragrafów dla rasy/klasy (jeśli klasa już jest, to nie doda drugiej takiej samej) i usuwa ją z tego, który jest zaznaczony. Dzięki temu widać zarówno opis rasy, jak i klasy, gdy są zaznaczone oba radio buttony.
+  - druga opcja to podmiana tekstu w całym boxie za pomocą innerText - są 2 arraye z opisami w template stringach i pokazywany jest template string o indeksie zgodnym z zaznaczonym radio buttonem.
+Pierwsza metoda wydłuża kod HTML, a druga kod JS.
+Jednocześnie można zaoszczędzić kilka linijek kodu dodając wszystko w attributes.js do już stworzonych eventListenerów, które podmieniają wartości atrybutów, ale zmniejszy to czytelność kodu.
+
+- Dałem text-align: center dla legend w polach z atrybutami.
+
+###################################
+
+v0.7.5 - 06.08.2019
+
+- W funkcjach getActualAttrValues() oraz changeAllAttrValues() w pętli zmieniłem ręczną wartość 4 na Object.keys(ourCharacter.attributes).length, dzięki czemu będą one pobierały i podmieniały dane we wszystkich polach niezależnie od tego, ile będzie atrybutów. Jeśli w przyszłości byłoby ich więcej, to nie trzeba będzie nic tu zmieniać.
+
+- Funkcja generateRandom() jest nadrzędna nad wszystkim - generuje liczby losowe i odblokowuje kolejne opcje, których można użyć. Nie mogę w niej wykorzystać w pętli Object.keys(ourCharacter.attributes).length, ponieważ dopiero ona generuje te elementy. Na razie zostaje ręczna wartość 4.
+
+- Dodałem zmienną charAttrs, którą przypisałem do obiektu attributes w obiekcie ourCharacter. Podmieniłem ją wszędzie zastępując nią ourCharacter.attributes. Jeśli zmieniłyby się założenia, wtedy wystarczy podmienić zawartość tylko tej zmiennej i będzie to działać wszędzie, gdzie była użyta.
+
+- Zmieniłem ustawienie odejmowania [-], żeby nie można było odjąć poniżej tego, co zostało wylosowane -> stworzony globalny array generatedAttrs = [], który czyści się przy każdym użyciu buttona do losowania i potem dodawane są do niego wylosowane liczby. Array został dodany do subtractAttr(n) i ma wyznaczać dolną granicę odejmowania dla każdego atrybutu. Nie działa to dobrze w przypadku, jeśli wylosowana liczba była większa niż jest po użyciu radio buttonów, np. 10 - 2 - 2 = 6 -> w takim przypadku odejmowanie działa dopiero powyżej 10 i jeśli do 6 dodamy coś, to już tego nie odejmiemy z powrotem. Nie widzę na razie sposobu, żeby to ustawić -> przy próbie użycia charAttrs['attr' + i] w subtractAttr(n) zamiast generatedAttrs[n - 1] nie działa to w ogóle, ponieważ każde przełączenie radio buttona będzie zapisywało nowe wartości atrybutów i w ten sposób można wykorzystać wszystkie punkty z puli między przełączeniami i nie da się ich przywrócić inaczej niż losując nowe liczby. 
+
+###################################
+
+v0.7.2 - 03.08.2019
+
+- Usunąłem zmienne attr1, 2, 3, 4 i zastąpiłem je pustym obiektem ourCharacter, który będzie pobierał atrybuty i inne dane przy generowaniu losowych danych i zaznaczeniu odpowiednich radio buttonów. W tym momencie efekt jest taki sam, jak przy zmiennych, ale chcę to rozbudować, aby do obiektu mogły być dodawane kolejne dane.
+
+- W funkcji generowania liczb losowych zmieniłem pojedyncze linie kodu do generowania każdego atrybutu na pętlę for, która dodaje odpowiednie key: values to obiektu ourCharacter. Gdyby było więcej atrybutów, to trzeba zmienić ilość powtórzeń w pętli.
+
+- Podobnie j/w - w funkcji changeAllAttrValues() zmieniłem pojedyncze linie zmieniające wartość inputów z atrybutami na pętlę for. Tutaj także trzeba zmienić ilość powtórzeń pętli, jeśli zostałaby zmieniona ilość atrybutów.
+
+- Zmieniłem pojedyncze dodawanie eventListenerów do radio buttonów na dwie pętle forEach - jedna dla race i druga dla class. Każda skróciła kod danego zestawu radio buttonów z 24 do 10 linii.
+
+- Wszystkie zmiany w tej wersji zmniejszyły ilość kodu z 260 do 220 linii.
+
+###################################
+
+v0.7.0 - 03.08.2019
+
+- Zmieniłem w HTML kolejność Random btn, Final Attributes, Race, Class. Ustawiłem domyślnie atrybut disabled dla wszystkiego poza Random btn i wyczyściłem domyślne wartości, żeby pola były puste po otworzeniu okna. Musiałem wyłączyć radio buttony, ponieważ przy pustych polach wybranie radio buttona powodowało pojawienie się ujemnych wartości w niektórych polach. Dopiero po kliknięciu Random btn pojawiają się wygenerowane liczby i odblokowują się radio buttony oraz korzystanie z punktów z puli.
+Atrybut disabled można usunąć za pomocą JS przez np. document.querySelector('xxxx').disabled = false. Działa to jednak tylko na pojedynczego elementu. Nie ma znaczenia querySelectorAll czy getElementsByClassName. Dla wielu elementów trzeba ustawić pętlę, która usunie disabled. Tutaj:
+const disabledButtons = document.querySelectorAll('.disabledBtn');
+  for (let i = 0; i < disabledButtons.length; i++) {
+    disabledButtons[i].disabled = false; 
+
+- Zmieniam ilość punktów w puli z 20 na 10.
+
+- Ograniczam dodawanie, żeby nie można było przekroczyć 20 punktów danego atrybutu.
+
+###################################
+
+v0.6.0 - 02.08.2019
+
+- Napisałem funkcje classXAttrReset(), które mają działać w momencie odznaczenia jakiegoś radio buttona i cofać zmiany w atrybutach wprowadzone w momencie, gdy był zaznaczony.
+
+- Zmieniłem pojedyncze funkcje classXAttrChange() i classXAttrReset() na pojedyncze funkcje ze switchem: classAttrReset() oraz classAttrReset(n). W zależności od tego, jaki argument zostanie podany przy funkcji, wtedy następuje odpowiednia zmiana atrybutów.
+
+- Dodałem funkcje zmieniające dla drugiego zestawu radio buttonów: raceAttrChange() i raceAttrReset() oraz eventListenery i wrzuciłem te funkcje wszędzie, gdzie powinny być, żeby dobrze zliczały się atrybuty bez względu na to, co jest zaznaczone.
+
+- Zmieniłem zmienne class1Used itd. na array classUsed z początkowymi wartościami false. W funkcji uncheckedClassPointsReset() zmieniłem 4x if statement dla każdego użycia klasy na pętlę classUsed.forEach, która daje dokładnie ten sam efekt i skraca kod z 20 linii do 7. To samo zrobiłem z raceUsed.
+
+- W funkcji generowania liczb losowych zmieniłem 8 wystąpień if statement sprawdzających zaznaczenie radio buttonów i dodających na ich podstawie zmiany do wygenerowanych liczb na dwie pętle forEach sprawdzające true/false przy raceUsed, classUsed. Skróciło to ten fragment kodu z 24 do 10 linii.
+
+###################################
+
+v0.5.5 - 01.08.2019
+
+- Stworzyłem jedną funkcję podmieniającą wartości wszystkich atrybutów changeAllAttrValues(), którą wstawiam do kolejnych funkcji, które modyfikują atrybuty i muszą potem zwrócić ich wartość w odpowiednich polach.
+
+- Stworzyłem oddzielne funkcje zmieniające wartości atrybutów w zależności od tego, który radio button jest zaznaczony przy wyborze klasy, np. class1AttrChange(). Teraz nie muszę już powtarzać kodu i wystarczy, że dodam tę funkcję do kolejnych funkcji modyfikujących dane. W razie potrzeby wystarczy zmienić wartości +/- w konkretnej z tych funkcji classXAttrChange() i zmiany będą automatycznie obowiązywały dalej w kodzie.
+
+- Połączyłem generowanie liczb losowych z modyfikacją atrybutów, gdy jest zaznaczony jakiś radio button. Teraz jeśli jest zaznaczony jakiś radio button, to dla wylosowanych liczb są stosowane modyfikacje zależne od wyżej opisanej funkcji classXAttrChange() i dopiero te wartości pojawiają się w polach (sprawdzone zliczanie dzięki console.log, który pokazywał wylosowane liczby przez zastosowaniem zmian).
+Dodatkowo dodałem resetowanie puli punktów, żeby przy każdym nowym losowaniu odnawiała się do 20 pkt.
+
+###################################
+
+v0.5.0 - 27.07.2019
+
+- Rozwiązałem problem, że przy każdym ponownym zaznaczeniu radio buttona dodawało/odejmowało coraz więcej i więcej punktów.
+
+- Napisałem funkcję, żeby usuwało zmiany wprowadzone po zaznaczeniu każdego innego radio buttona niż aktualny. Wygląda to tak, że jest eventListener na każdym radio buttonie, który sprawdza, czy został on zmieniony -> działa to tylko przy zaznaczaniu radio buttona, ale już nie wykrywa, gdy zostanie on odznaczony przy kliknięciu innego radio buttona. Najpierw wykonywana jest funkcja uncheckedPointsReset(), która sprawdza, czy jakikolwiek radio button był już zaznaczony - każdy ma przypisaną zmienną, która zmienia się na true w momencie wybrania radio buttona. Jeśli funkcja znajdzie gdzieś true, wtedy stosuje zmiany atrybutów odwrotne do tego, co robił zaznaczony radio button (np. było +2 do czegoś, to robi -2). Następnie funkcja daje true dla zmiennej odpowiadającej aktualnemu radio buttonowi, pobiera aktualne wartości atrybutów, wprowadza nowe zmiany atrybutów i podmienia je w odpowiednich polach.
+
+- Dodałem puste zmienne na początku skryptu oraz funkcji, która będzie wywoływana dopiero przy zaznaczeniu checkboxa i będzie na bieżąco zliczała wartości cech. Bez tego zapamiętane były wartości przy odpalaniu strony i nawet jeśli gdzieś dodano coś za pomocą +/-, to i tak po zaznaczeniu radio buttona pojawiał się wynik liczony od podstawowej wartości.
+
+- Dodałem buttony +/- do wszystkich cech, żeby wszędzie można było korzystać z puli punktów. Zamiast tworzyć oddzielne funkcje dodające i odejmujące punkty, tworzę 1 funkcję dla dodawania i jedną dla odejmowania z parametrem n. Potem dla onlick dodaję funkcję wskazując jako argument numer cechy, która ma być zwiększana/zmniejszana. Ew. można też zamiast nazw attr1, 2 itd. dać attrStrength, attrDexterity itp. i jako n dawać takie wartości - pamiętać, żeby wszędzie zmienić w kodzie konkretną nazwę, żeby nie przestało działać.
+
+- Zamiast pisać przy każdym radio buttonie jakie mają być zmiany, jeśli wcześniej był zaznaczony inny radio button, napisałem funkcję uncheckedPointsReset(), w której są zawarte odwrotne zmiany do tych co wprowadzają poszczególne radio buttony. Funkcję dodałem do eventListenera przy każdym radio buttonie jeszcze przez modyfikacją zmiennej na true, żeby nie wykluczało się to z bieżącym radio buttonem.
+
+- Ograniczyłem odejmowanie, aby nie można było z niego korzystać gdy jest 5 punktów i nie można dodać do puli powyżej początkowych 20 pkt.
+
+###################################
+
+ROZBUDOWA - kiedyś?:
+
+- dodanie buttona, który zatwierdza wszystkie ustawienia - zaznaczone radio buttony oraz if pointsLeft === 0, wtedy generuje dodatkowe elementy obiektu ourCharacter, np. atk, def, hp, mp itp. itd. i przenosi na kolejną stronę, która jest etapem gry: po lewej jest ekran gry, a po prawej małe okno z informacjami o postaci na podstawie danych z obiektu oraz poniżej ekwipunek?
+
+Funkcja do zmiany elementów obiektu attr1, 2, 3, 4 na właściwe nazwy cech:
+function renameAttrsToAttrNames () {
+  Object.defineProperty(ourCharacter.attributes, 'Str', Object.getOwnPropertyDescriptor(ourCharacter.attributes, 'attr1'));
+  delete ourCharacter.attributes.attr1;
+  Object.defineProperty(ourCharacter.attributes, 'Dex', Object.getOwnPropertyDescriptor(ourCharacter.attributes, 'attr2'));
+  delete ourCharacter.attributes.attr2;
+  Object.defineProperty(ourCharacter.attributes, 'Sta', Object.getOwnPropertyDescriptor(ourCharacter.attributes, 'attr3'));
+  delete ourCharacter.attributes.attr3;
+  Object.defineProperty(ourCharacter.attributes, 'Int', Object.getOwnPropertyDescriptor(ourCharacter.attributes, 'attr4'));
+  delete ourCharacter.attributes.attr4;
+}
+Działa ona tylko raz -> jeśli po zmianie nazw elementów obiektu zostaną jeszcze dokonane jakieś zmiany, to nie zostaną one już wprowadzone w obiekcie. Dodatkowo ponowne losowanie nie przywróci punktów w puli i żadne zmiany nie będą miały wpływu na punkty statystyk (HP, Atk, Def, Mag). Trzeba by było wymusić, żeby button zawierający tę funkcję od razu przenosił na kolejną stronę oraz żeby się aktywował dopiero, gdy wszystkie opcje w karcie postaci zostały wybrane. 
+
+
+- Import/wykorzystanie zmiennych/obiektów z jednego pliku js w innym
+
+- ekwipunek to array lub object, itemy wpływają na elementy obiektu ourCharacter
+
+- plansza narysowana wcześniej i podzielona na grid, po którym porusza się postać. Grid całkowicie zasłania obraz i odsłania się w miarę jak postać przechodzi przez kolejne pola (pozostają już odsłonięte). Można zrobić tak, że odsłania się też zawsze +1 pole w każdym kierunku od tego, na którym stoi postać.
+
+- a jak ustalić ścieżkę, po której porusza się postać? Bordery w kwadratach? if (has border) {do nothing} else {move in that direction}
+
+- levelowanie postaci i skille?

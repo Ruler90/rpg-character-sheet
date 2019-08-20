@@ -1,0 +1,72 @@
+input:focus {
+    outline-color: rgb(41, 212, 212);
+}
+
+input[type=text] {
+    background: #efc89a;
+    border: none;
+    padding: 3px;
+    color: #123;
+}
+
+#charName {
+    background: #e7d8c8;
+    font-weight: 600;
+}
+
+#attrHP,
+#attrAtk,
+#attrDef,
+#attrMag {
+    margin: 2px 2px 2px 5px;
+    /* niech zostanie width 30px, bo zmieszczą się wtedy liczby 4-cyfrowe */
+    width: 30px;
+    /* padding: 3px; */
+}
+
+.button--mainProperties {
+    background: #C4824D;
+    border: none;
+    font-weight: 600;
+    transition: transform 300ms ease; 
+}
+
+.button--mainProperties:hover,
+.button--mainProperties:focus {
+    background: rgb(202, 115, 43);
+}
+
+.button--mainProperties:active {
+    transform: scale(0.85);
+}
+
+.randomButton {
+    margin: 5px auto;
+    width: 100px;
+    height: 25px;
+}
+
+.attrValueInputs {
+    width: 20px;
+    padding: 2px;
+    text-align: center;
+    margin: 2px 2px 2px 8px;
+}
+
+.btnAddRemove {
+    width: 20px;
+    margin: 2px;
+    padding: 2px;
+}
+
+.radioButtons--centered {
+    max-width: 100px;
+    margin: 0 auto;
+}
+
+.changeImgBtn {
+    width: 30px;
+    height: 25px;
+    padding: 3px;
+    margin: 2px;
+}
