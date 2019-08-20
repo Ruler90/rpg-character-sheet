@@ -16,5 +16,3 @@ Funcionalities:
 
 Some descriptions were copied from wiki.
 All pictures are from deviantart. All rights belong to artists that made them.
-
-aaa
