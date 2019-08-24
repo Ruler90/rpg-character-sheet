@@ -1,8 +1,14 @@
+.animation {
+  position: absolute;
+  animation-timing-function: ease;
+}
+
+.animation--time {
+  animation-duration: 400ms;
+}
+
 .animation__slideFromLeftToRight {
-    position: absolute;
     animation-name: slideFromLeftToRight;
-    animation-duration: 400ms;
-    animation-timing-function: ease;
   }
   
   @keyframes slideFromLeftToRight {
@@ -15,10 +21,7 @@
   }
   
   .animation__slideFromZeroToRight {
-    position: absolute;
     animation-name: slideFromZeroToRight;
-    animation-duration: 400ms;
-    animation-timing-function: ease;
   }
   
   @keyframes slideFromZeroToRight {
@@ -31,10 +34,7 @@
   }
 
 .animation__slideFromRightToLeft {
-    position: absolute;
     animation-name: slideFromRightToLeft;
-    animation-duration: 400ms;
-    animation-timing-function: ease;
   }
   
   @keyframes slideFromRightToLeft {
@@ -47,10 +47,7 @@
   }
   
   .animation__slideFromZeroToLeft {
-    position: absolute;
     animation-name: slideFromZeroToLeft;
-    animation-duration: 400ms;
-    animation-timing-function: ease;
   }
   
   @keyframes slideFromZeroToLeft {
