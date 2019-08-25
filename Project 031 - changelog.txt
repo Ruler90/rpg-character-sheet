@@ -3,13 +3,16 @@
 
 v1.0.2 - 25.08.2019
 
-- Skracam kod JS dodając data-attribute (z 266 linii do xxx)
+- Skróciłem kod JS z 266 linii do 197 dzięki podpowiedzi gościa z grupy na FB. Wcześniej wyciąłem z projektu kod dotyczący radio buttonów i wprowadzanych przez nie zmian. Na podstawie podpowiedzi na okrojonym kawałku kodu udało mi się wykorzystać data-attribute i nadać całości to samo działanie wyrzucając prawie połowę kodu. Tutaj działem podobnie, ale zamiast data-attribute zastosowałem kolejny element obiektu ourCharacter, który bazuje na początkowych wartościach cech generowanych losowo. 
+
 
 Skopiować może opis z fragmentu kodu
 
 Rozpisać jak teraz działają funkcje
 
-Skrócić część nowych długich nazw (we wszystkich miejscach)
+- Aktualne działanie kodu:
+1. Wszystkie elementy poza portretem są dodawane do obiektu ourCharacter: name, gender, attrs, stats, race, class.
+2.  
 
 ###################################
 
