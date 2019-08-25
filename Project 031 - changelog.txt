@@ -3,16 +3,25 @@
 
 v1.0.2 - 25.08.2019
 
-- Skróciłem kod JS z 266 linii do 197 dzięki podpowiedzi gościa z grupy na FB. Wcześniej wyciąłem z projektu kod dotyczący radio buttonów i wprowadzanych przez nie zmian. Na podstawie podpowiedzi na okrojonym kawałku kodu udało mi się wykorzystać data-attribute i nadać całości to samo działanie wyrzucając prawie połowę kodu. Tutaj działem podobnie, ale zamiast data-attribute zastosowałem kolejny element obiektu ourCharacter, który bazuje na początkowych wartościach cech generowanych losowo. 
+- Skróciłem kod JS z 266 linii do 197 dzięki podpowiedzi gościa z grupy na FB. Wcześniej wyciąłem z projektu kod dotyczący radio buttonów i wprowadzanych przez nie zmian. Na podstawie podpowiedzi na okrojonym kawałku kodu udało mi się wykorzystać data-attribute i nadać całości to samo działanie wyrzucając prawie połowę kodu. Tutaj działem podobnie, ale zamiast data-attribute zastosowałem kolejny element obiektu ourCharacter, który bazuje na początkowych wartościach cech generowanych losowo.
 
-
-Skopiować może opis z fragmentu kodu
-
-Rozpisać jak teraz działają funkcje
+Nie są już potrzebne funkcje stosujące odwrotne obliczenia, żeby cofnąć zmiany ani funkcje nadające/usuwające radio buttonom klasy used i notUsed.
 
 - Aktualne działanie kodu:
 1. Wszystkie elementy poza portretem są dodawane do obiektu ourCharacter: name, gender, attrs, stats, race, class.
-2.  
+2. Zmiany atrybutów są rozpoczynane przez użycie Random Buttona. W odpowiednich polach pokazują się wylosowane wartości oraz odblokowują się radio buttony do zmian rasy i klasy oraz używania punktów z puli.
+3. Każda zmiana na bieżąco wpływa na statystyki (HP, Atk, Def, Mag) - sprawdzanie są aktualne wartości attr1-4, dokonywane są obliczenia na ich podstawie i podmieniane są liczby w odpowiednich polach.
+4. Random Button generuje losowe liczby i przypisuje je do attr1-4 w obiekcie ourCharacter. Jednocześnie wartości te są wykorzystywane jako kolejne elementy tego obiektu: attr1-4Init i są wartościami początkowymi, na których opierają się dalsze obliczenia.
+5. W kodzie są 2 switche - jeden dla rasy i jeden dla klasy - określają, jak zmienią się wartości poszczególnych attr1-4Init po wybraniu danego radio buttona i przypisują je do kolejnych elementów ourCharacter: attr1-4Race oraz attr1-4Class. Elementy te są wykorzystywane w funkcji changeAllAttrValues(), która podmienia wartości w odpowiednich polach na podstawie tego, czy i które radio buttony zostały użyte.
+6. Funkcja changeAllAttrValues() poza pętlą for ma teraz if statements, które dbają o poprawne pokazanie wartości na stronie:
+- jeśli żadnen radio button nie jest zaznaczony, to w polach pokażą się wylosowane wartości (attr1-4Init);
+- jeśli jest zaznaczony jeden radio button, to pokażą się wylosowane wartości zmodyfikowane w sposób przypisany do radio buttona (attr1-4Race lub attr1-4Class);
+- jeśli są zaznaczone oba radio buttony, to wyświetlą się zsumowane wylosowane wartości już po modyfikacjach dokonanych na podstawie zaznaczonych radio buttonów (attr1-4Race + attr1-4Class - attr1-4Init).
+7. Łącząc to wszystko odnośnie Random Buttona:
+- generuje losowe liczby i przypisuje je do attr1-4 oraz attr1-4Init;
+- sprawdza, czy jest zaznaczony jakikolwiek radio button i jeśli tak, to wywołuje przypisane do niego akcje i wykonuje obliczenia używając attr1-4Init;
+- wywołuje funkcję changeAllAttrValues(), która sprawdza, które wartości zostały obliczone (czy są same randomowe liczby czy są już wartości obliczone na podstawie jednego lub obu radio buttonów) i podmienia je w odpowiednich polach;
+- dodatkowo przywraca pulę 10 punktów oraz odblokowuje radio buttony, jeśli to jego pierwsze użycie i wywołuje funkcję podmieniającą statytyki.
 
 ###################################
 
