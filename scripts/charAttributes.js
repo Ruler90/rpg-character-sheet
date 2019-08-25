@@ -21,124 +21,73 @@ for (let i = 0; i < genderSelect.length; i++) {
 }
 
 const charAttrs = ourCharacter.attributes;
+const charInit = ourCharacter.attrInitialValues;
 
 function raceAttrChange(n) {
   switch (n) {
     case 1:
-      // Human race have no attribute modifiers
+      charInit.attr1Race = +charInit.attr1Init;
+      charInit.attr2Race = +charInit.attr2Init;
+      charInit.attr3Race = +charInit.attr3Init;
+      charInit.attr4Race = +charInit.attr4Init;
       ourCharacter.race = 'Human';
       break;
     case 2:
-      ourCharacter.attrInitialValues.attr1Race = +ourCharacter.attrInitialValues.attr1Init - 2;
-      ourCharacter.attrInitialValues.attr2Race = +ourCharacter.attrInitialValues.attr2Init + 1;
-      ourCharacter.attrInitialValues.attr3Race = +ourCharacter.attrInitialValues.attr3Init - 1;
-      ourCharacter.attrInitialValues.attr4Race = +ourCharacter.attrInitialValues.attr4Init + 2;
+      charInit.attr1Race = +charInit.attr1Init - 2;
+      charInit.attr2Race = +charInit.attr2Init + 1;
+      charInit.attr3Race = +charInit.attr3Init - 1;
+      charInit.attr4Race = +charInit.attr4Init + 2;
       ourCharacter.race = 'Elf';
       break;
     case 3:
-      ourCharacter.attrInitialValues.attr1Race = +ourCharacter.attrInitialValues.attr1Init + 2;
-      ourCharacter.attrInitialValues.attr2Race = +ourCharacter.attrInitialValues.attr2Init - 2;
-      ourCharacter.attrInitialValues.attr3Race = +ourCharacter.attrInitialValues.attr3Init + 1;
-      ourCharacter.attrInitialValues.attr4Race = +ourCharacter.attrInitialValues.attr4Init - 1;
+      charInit.attr1Race = +charInit.attr1Init + 2;
+      charInit.attr2Race = +charInit.attr2Init - 2;
+      charInit.attr3Race = +charInit.attr3Init + 1;
+      charInit.attr4Race = +charInit.attr4Init - 1;
       ourCharacter.race = 'Dwarf';
       break;
     case 4:
-      ourCharacter.attrInitialValues.attr1Race = +ourCharacter.attrInitialValues.attr1Init - 1;
-      ourCharacter.attrInitialValues.attr2Race = +ourCharacter.attrInitialValues.attr2Init + 2;
-      ourCharacter.attrInitialValues.attr3Race = +ourCharacter.attrInitialValues.attr3Init + 1;
-      ourCharacter.attrInitialValues.attr4Race = +ourCharacter.attrInitialValues.attr4Init - 2;
+      charInit.attr1Race = +charInit.attr1Init - 1;
+      charInit.attr2Race = +charInit.attr2Init + 2;
+      charInit.attr3Race = +charInit.attr3Init + 1;
+      charInit.attr4Race = +charInit.attr4Init - 2;
       ourCharacter.race = 'Dark Elf';
       break
   }
 }
 
-// function raceAttrReset(n) {
-//   switch (n) {
-//     // case 1:
-//     //   Human race have no attribute modifiers
-//     //   break;
-//     case 2:
-//       charAttrs.attr1 = +charAttrs.attr1 + 2;
-//       charAttrs.attr2 = +charAttrs.attr2 - 1;
-//       charAttrs.attr3 = +charAttrs.attr3 + 1;
-//       charAttrs.attr4 = +charAttrs.attr4 - 2;
-//       break;
-//     case 3:
-//       charAttrs.attr1 = +charAttrs.attr1 - 2;
-//       charAttrs.attr2 = +charAttrs.attr2 + 2;
-//       charAttrs.attr3 = +charAttrs.attr3 - 1;
-//       charAttrs.attr4 = +charAttrs.attr4 + 1;
-//       break;
-//     case 4:
-//       charAttrs.attr1 = +charAttrs.attr1 + 1;
-//       charAttrs.attr2 = +charAttrs.attr2 - 2;
-//       charAttrs.attr3 = +charAttrs.attr3 - 1;
-//       charAttrs.attr4 = +charAttrs.attr4 + 2;
-//       break
-//   }
-// }
-
 function classAttrChange(n) {
   switch (n) {
     case 1:
-      ourCharacter.attrInitialValues.attr1Class = +ourCharacter.attrInitialValues.attr1Init + 2;
-      ourCharacter.attrInitialValues.attr2Class = +ourCharacter.attrInitialValues.attr2Init - 1;
-      ourCharacter.attrInitialValues.attr3Class = +ourCharacter.attrInitialValues.attr3Init + 1;
-      ourCharacter.attrInitialValues.attr4Class = +ourCharacter.attrInitialValues.attr4Init - 2;
+      charInit.attr1Class = +charInit.attr1Init + 2;
+      charInit.attr2Class = +charInit.attr2Init - 1;
+      charInit.attr3Class = +charInit.attr3Init + 1;
+      charInit.attr4Class = +charInit.attr4Init - 2;
       ourCharacter.class = 'Warrior';
       break;
     case 2:
-      ourCharacter.attrInitialValues.attr1Class = +ourCharacter.attrInitialValues.attr1Init - 2;
-      ourCharacter.attrInitialValues.attr2Class = +ourCharacter.attrInitialValues.attr2Init + 2;
-      ourCharacter.attrInitialValues.attr3Class = +ourCharacter.attrInitialValues.attr3Init + 1;
-      ourCharacter.attrInitialValues.attr4Class = +ourCharacter.attrInitialValues.attr4Init - 1;
+      charInit.attr1Class = +charInit.attr1Init - 2;
+      charInit.attr2Class = +charInit.attr2Init + 2;
+      charInit.attr3Class = +charInit.attr3Init + 1;
+      charInit.attr4Class = +charInit.attr4Init - 1;
       ourCharacter.class = 'Ranger';
       break;
     case 3:
-      ourCharacter.attrInitialValues.attr1Class = +ourCharacter.attrInitialValues.attr1Init - 2;
-      ourCharacter.attrInitialValues.attr2Class = +ourCharacter.attrInitialValues.attr2Init - 1;
-      ourCharacter.attrInitialValues.attr3Class = +ourCharacter.attrInitialValues.attr3Init + 1;
-      ourCharacter.attrInitialValues.attr4Class = +ourCharacter.attrInitialValues.attr4Init + 2;
+      charInit.attr1Class = +charInit.attr1Init - 2;
+      charInit.attr2Class = +charInit.attr2Init - 1;
+      charInit.attr3Class = +charInit.attr3Init + 1;
+      charInit.attr4Class = +charInit.attr4Init + 2;
       ourCharacter.class = 'Mage';
       break;
     case 4:
-      ourCharacter.attrInitialValues.attr1Class = +ourCharacter.attrInitialValues.attr1Init + 1;
-      ourCharacter.attrInitialValues.attr2Class = +ourCharacter.attrInitialValues.attr2Init + 2;
-      ourCharacter.attrInitialValues.attr3Class = +ourCharacter.attrInitialValues.attr3Init - 1;
-      ourCharacter.attrInitialValues.attr4Class = +ourCharacter.attrInitialValues.attr4Init - 2;
+      charInit.attr1Class = +charInit.attr1Init + 1;
+      charInit.attr2Class = +charInit.attr2Init + 2;
+      charInit.attr3Class = +charInit.attr3Init - 1;
+      charInit.attr4Class = +charInit.attr4Init - 2;
       ourCharacter.class = 'Assassin';
       break
   }
 }
-
-// function classAttrReset(n) {
-//   switch (n) {
-//     case 1:
-//       charAttrs.attr1 = +charAttrs.attr1 - 2;
-//       charAttrs.attr2 = +charAttrs.attr2 + 1;
-//       charAttrs.attr3 = +charAttrs.attr3 - 1;
-//       charAttrs.attr4 = +charAttrs.attr4 + 2;
-//       break;
-//     case 2:
-//       charAttrs.attr1 = +charAttrs.attr1 + 2;
-//       charAttrs.attr2 = +charAttrs.attr2 - 2;
-//       charAttrs.attr3 = +charAttrs.attr3 - 1;
-//       charAttrs.attr4 = +charAttrs.attr4 + 1;
-//       break;
-//     case 3:
-//       charAttrs.attr1 = +charAttrs.attr1 + 2;
-//       charAttrs.attr2 = +charAttrs.attr2 + 1;
-//       charAttrs.attr3 = +charAttrs.attr3 - 1;
-//       charAttrs.attr4 = +charAttrs.attr4 - 2;
-//       break;
-//     case 4:
-//       charAttrs.attr1 = +charAttrs.attr1 - 1;
-//       charAttrs.attr2 = +charAttrs.attr2 - 2;
-//       charAttrs.attr3 = +charAttrs.attr3 + 1;
-//       charAttrs.attr4 = +charAttrs.attr4 + 2;
-//       break
-//   }
-// }
 
 const raceUsed = document.querySelectorAll('.raceRadioBtn');
 
@@ -172,26 +121,19 @@ function getActualAttrValues() {
   };
 }
 
-// function changeAllAttrValues() {
-//   for (let i = 1; i <= Object.keys(charAttrs).length; i++) {
-//     document.querySelector('#attr' + i).value = charAttrs['attr' + i];
-//   }
-// }
-
-
 function changeAllAttrValues() {
   for (let i = 1; i <= Object.keys(charAttrs).length; i++) {
-    if (ourCharacter.attrInitialValues['attr' + i + 'Race'] === undefined && ourCharacter.attrInitialValues['attr' + i + 'Class'] === undefined) {
-      document.querySelector('#attr' + i).value = ourCharacter.attrInitialValues['attr' + i + 'Init'];
+    if (charInit['attr' + i + 'Race'] === undefined && charInit['attr' + i + 'Class'] === undefined) {
+      document.querySelector('#attr' + i).value = charInit['attr' + i + 'Init'];
     }
-    if (ourCharacter.attrInitialValues['attr' + i + 'Race'] !== undefined && ourCharacter.attrInitialValues['attr' + i + 'Class'] === undefined) {
-      document.querySelector('#attr' + i).value = ourCharacter.attrInitialValues['attr' + i + 'Race']  
+    if (charInit['attr' + i + 'Race'] !== undefined && charInit['attr' + i + 'Class'] === undefined) {
+      document.querySelector('#attr' + i).value = charInit['attr' + i + 'Race']  
     }
-    if (ourCharacter.attrInitialValues['attr' + i + 'Race'] === undefined && ourCharacter.attrInitialValues['attr' + i + 'Class'] !== undefined) {
-      document.querySelector('#attr' + i).value = ourCharacter.attrInitialValues['attr' + i + 'Class']
+    if (charInit['attr' + i + 'Race'] === undefined && charInit['attr' + i + 'Class'] !== undefined) {
+      document.querySelector('#attr' + i).value = charInit['attr' + i + 'Class']
     }
-    if (ourCharacter.attrInitialValues['attr' + i + 'Race'] !== undefined && ourCharacter.attrInitialValues['attr' + i + 'Class'] !== undefined) {
-      document.querySelector('#attr' + i).value = ourCharacter.attrInitialValues['attr' + i + 'Race'] + ourCharacter.attrInitialValues['attr' + i + 'Class'] - ourCharacter.attrInitialValues['attr' + i + 'Init'];
+    if (charInit['attr' + i + 'Race'] !== undefined && charInit['attr' + i + 'Class'] !== undefined) {
+      document.querySelector('#attr' + i).value = charInit['attr' + i + 'Race'] + charInit['attr' + i + 'Class'] - charInit['attr' + i + 'Init'];
 	  }
   }
 }
@@ -238,7 +180,7 @@ function generateRandom() {
   generatedAttrs = [];
   for (let i = 1; i <= 4; i++) {
     charAttrs['attr' + i] = Math.floor(Math.random() * (12 - 5 + 1)) + 5;
-    ourCharacter.attrInitialValues['attr' + i + 'Init'] = charAttrs['attr' + i];
+    charInit['attr' + i + 'Init'] = charAttrs['attr' + i];
     generatedAttrs.push(charAttrs['attr' + i]);
   }
   // log random attr to compare them to the attr with radio btn checked
@@ -247,12 +189,12 @@ function generateRandom() {
   console.log(generatedAttrs);
 
   for (let i = 0; i < raceUsed.length; i++) {
-    if (raceUsed[i].classList.contains('raceUsed')) {
+    if (raceUsed[i].checked) {
       raceAttrChange(i + 1);
     }
   }
   for (let i = 0; i < classUsed.length; i++) {
-    if (classUsed[i].classList.contains('classUsed')) {
+    if (classUsed[i].checked) {
       classAttrChange(i + 1);
     }
   }
