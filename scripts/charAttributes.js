@@ -20,7 +20,6 @@ for (let i = 0; i < genderSelect.length; i++) {
   })
 }
 
-const charAttrs = ourCharacter.attributes;
 const charInit = ourCharacter.attrInitialValues;
 
 function raceAttrChange(n) {
@@ -89,31 +88,7 @@ function classAttrChange(n) {
   }
 }
 
-const raceUsed = document.querySelectorAll('.raceRadioBtn');
-
-// function uncheckedRacePointsReset() {
-//   for (let i = 0; i < raceUsed.length; i++) {
-//     if (raceUsed[i].classList.contains('raceUsed')) {
-//       raceUsed[i].classList.remove('raceUsed');
-//       raceUsed[i].classList.add('raceNotUsed');
-//       raceAttrReset(i + 1);
-//       changeAllAttrValues();
-//     }
-//   }
-// }
-
-const classUsed = document.querySelectorAll('.classRadioBtn');
-
-// function uncheckedClassPointsReset() {
-//   for (let i = 0; i < classUsed.length; i++) {
-//     if (classUsed[i].classList.contains('classUsed')) {
-//       classUsed[i].classList.remove('classUsed');
-//       classUsed[i].classList.add('classNotUsed');
-//       classAttrReset(i + 1);
-//       changeAllAttrValues();
-//     }
-//   }
-// }
+const charAttrs = ourCharacter.attributes;
 
 function getActualAttrValues() {
   for (let i = 1; i <= Object.keys(charAttrs).length; i++) {
@@ -150,12 +125,11 @@ function charStatsChange () {
   ourCharacter.stats.Magic = document.querySelector('#attrMag').value;
 }
 
+const raceUsed = document.querySelectorAll('.raceRadioBtn');
+const classUsed = document.querySelectorAll('.classRadioBtn');
+
 for (let i = 0; i < raceUsed.length; i++) {
   raceUsed[i].addEventListener('change', function () {
-    // uncheckedRacePointsReset();
-    // raceUsed[i].classList.remove('raceNotUsed');
-    // raceUsed[i].classList.add('raceUsed');
-    // getActualAttrValues();
     raceAttrChange(i + 1);
     changeAllAttrValues();
     charStatsChange();
@@ -164,10 +138,6 @@ for (let i = 0; i < raceUsed.length; i++) {
 
 for (let i = 0; i < classUsed.length; i++) {
   classUsed[i].addEventListener('change', function () {
-    // uncheckedClassPointsReset();
-    // classUsed[i].classList.remove('classNotUsed');
-    // classUsed[i].classList.add('classUsed');
-    // getActualAttrValues();
     classAttrChange(i + 1);
     changeAllAttrValues();
     charStatsChange()
