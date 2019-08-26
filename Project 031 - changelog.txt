@@ -6,6 +6,8 @@ v1.0.3 - 26.08.2019
 - Dodałem do eventListenerów document.querySelector('#pointsLeft').value = 10, ponieważ przy testowaniu okazało się, że jeśli wyda się jakieś punkty z puli i zmieni rasę lub klasę, to obliczenia całkowicie pomijają wydane punkty i nie wracały one do puli. Teraz przy zmianie rasy/klasy pula punktów się resetuje.
 Nie rozwiązało to problemu, że jeśli mamy początkową wartość X, a po wybraniu radio buttonów będzie to X-2 i jeśli dodamy 2 punkty z puli, to nie będziemy mogli ich odjąć, ponieważ funkcja odejmowania nie pozwala odejmować poniżej początkowej wylosowanej wartości (którą było X). Cześciowym rozwiązaniem jest reset puli przy przełączeniu radio buttona na inny i powrót do tego samego.
 
+- Usunałem array, do którego były wrzucane generowane liczby i podmieniłem go w funkcji odejmowania na charInit['attr' + n + 'Init'] tworzone przez random buttona.
+
 ###################################
 
 v1.0.2 - 25.08.2019
