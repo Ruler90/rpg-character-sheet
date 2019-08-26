@@ -146,19 +146,13 @@ for (let i = 0; i < classUsed.length; i++) {
   })
 }
 
-let generatedAttrs = [];
-
 function generateRandom() {
-  generatedAttrs = [];
   for (let i = 1; i <= 4; i++) {
     charAttrs['attr' + i] = Math.floor(Math.random() * (12 - 5 + 1)) + 5;
     charInit['attr' + i + 'Init'] = charAttrs['attr' + i];
-    generatedAttrs.push(charAttrs['attr' + i]);
   }
   // log random attr to compare them to the attr with radio btn checked
   console.log(charAttrs);
-  // log random array to check subtract
-  console.log(generatedAttrs);
 
   for (let i = 0; i < raceUsed.length; i++) {
     if (raceUsed[i].checked) {
@@ -191,7 +185,7 @@ function addAttr(n) {
 }
 
 function subtractAttr(n) {
-  if (document.querySelector('#attr' + n).value > generatedAttrs[n - 1] && document.querySelector('#pointsLeft').value < 10) {
+  if (document.querySelector('#attr' + n).value > charInit['attr' + n + 'Init'] && document.querySelector('#pointsLeft').value < 10) {
     document.querySelector('#attr' + n).value--;
     document.querySelector('#pointsLeft').value++
     charStatsChange()
