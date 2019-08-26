@@ -133,6 +133,7 @@ for (let i = 0; i < raceUsed.length; i++) {
     raceAttrChange(i + 1);
     changeAllAttrValues();
     charStatsChange();
+    document.querySelector('#pointsLeft').value = 10;
   })
 }
 
@@ -141,6 +142,7 @@ for (let i = 0; i < classUsed.length; i++) {
     classAttrChange(i + 1);
     changeAllAttrValues();
     charStatsChange()
+    document.querySelector('#pointsLeft').value = 10;
   })
 }
 
