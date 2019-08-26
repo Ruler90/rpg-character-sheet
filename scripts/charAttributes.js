@@ -102,14 +102,14 @@ function changeAllAttrValues() {
       document.querySelector('#attr' + i).value = charInit['attr' + i + 'Init'];
     }
     if (charInit['attr' + i + 'Race'] !== undefined && charInit['attr' + i + 'Class'] === undefined) {
-      document.querySelector('#attr' + i).value = charInit['attr' + i + 'Race']  
+      document.querySelector('#attr' + i).value = charInit['attr' + i + 'Race']
     }
     if (charInit['attr' + i + 'Race'] === undefined && charInit['attr' + i + 'Class'] !== undefined) {
       document.querySelector('#attr' + i).value = charInit['attr' + i + 'Class']
     }
     if (charInit['attr' + i + 'Race'] !== undefined && charInit['attr' + i + 'Class'] !== undefined) {
       document.querySelector('#attr' + i).value = charInit['attr' + i + 'Race'] + charInit['attr' + i + 'Class'] - charInit['attr' + i + 'Init'];
-	  }
+    }
   }
 }
 
