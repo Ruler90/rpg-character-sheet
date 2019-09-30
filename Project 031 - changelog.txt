@@ -1,6 +1,15 @@
 
 ###################################
 
+v1.0.5 - 01.10.2019
+
+- Dodałem poprawiony, krótszy kod JS dla zmiany portretów. Nie opiera się on już na klasie hidden i dodawaniu display: none do wszystkich niewidocznych slajdów. Teraz widoczny slajd dostaje klasę activePortrait i animacje są dodawane do następnego/poprzedniego elementu w zależności od tego, czy ma się pojawić następny czy poprzedni portret.
+
+INFO:
+Po zakończeniu animacji czyszczona jest klasa zawierająca position: absolute i wtedy nagle pojawiał się pierwszy element zamiast jakiegokolwiek innego. Okazuje się, że dodanie display: flex do kontenera ze zdjęciami utrzymuje portrety na miejscu po zakończeniu animacji nawet mimo czyszczenia position: absolute. Nie zwróciłem na to wcześniej uwagi, bo inne moje slidery miały buttony wewnątrz slidera i tam zawsze używałem flexa z myślą tylko o nich.
+
+###################################
+
 v1.0.4 - 28.09.2019
 
 - Zmieniłem animacje z tych opartych na właściwości left na oparte na transform: translateX.
