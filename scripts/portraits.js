@@ -7,29 +7,22 @@ const time = +getComputedStyle(document.querySelector('.animation--time')).anima
 function nextPortrait () {
   for (let i = 0; i < portraitImages.length; i++) {
     if (!emptyPortrait.classList.contains('portraitHidden')) {
+      portraitImages[i].classList.add('animation', 'animation--time', 'animation__slideFromRightToLeft', 'activePortrait');
       emptyPortrait.classList.add('animation', 'animation--time', 'animation__slideFromZeroToLeft');
-      setTimeout(function () { emptyPortrait.classList.add('portraitHidden') }, time);
-      portraitImages[0].classList.remove('portraitHidden');
-      portraitImages[0].classList.add('animation', 'animation--time', 'animation__slideFromRightToLeft');
-      setTimeout(function () { portraitImages[0].classList.remove('animation', 'animation--time', 'animation__slideFromRightToLeft') }, time);
-      break;
-    };
-    if (!portraitImages[portraitImages.length - 1].classList.contains('portraitHidden')) {
-      setTimeout(function () { portraitImages[portraitImages.length - 1].classList.add('portraitHidden') }, time);
-      portraitImages[portraitImages.length - 1].classList.add('animation', 'animation--time', 'animation__slideFromZeroToLeft');
-      setTimeout(function () { portraitImages[portraitImages.length - 1].classList.remove('animation', 'animation--time', 'animation__slideFromZeroToLeft') }, time);
-      portraitImages[0].classList.remove('portraitHidden');
-      portraitImages[0].classList.add('animation', 'animation--time', 'animation__slideFromRightToLeft');
-      setTimeout(function () { portraitImages[0].classList.remove('animation', 'animation--time', 'animation__slideFromRightToLeft') }, time);
+      setTimeout(function () { emptyPortrait.setAttribute('class', 'emptyPortrait portraitHidden') }, time);
+      setTimeout(function () { portraitImages[i].setAttribute('class', 'portraits activePortrait') }, time);
       break;
     }
-    if (!portraitImages[i].classList.contains('portraitHidden')) {
-      setTimeout(function () { portraitImages[i].classList.add('portraitHidden') }, time);
+    if (portraitImages[portraitImages.length - 1].classList.contains('activePortrait')) {
+      portraitImages[0].classList.add('animation', 'animation--time', 'animation__slideFromRightToLeft', 'activePortrait');
+      portraitImages[portraitImages.length - 1].classList.add('animation', 'animation--time', 'animation__slideFromZeroToLeft');
+      setTimeout(function () { portraitImages[portraitImages.length - 1].setAttribute('class', 'portraits') }, time);
+      break;
+    }
+    if (portraitImages[i].classList.contains('activePortrait')) {
+      portraitImages[i + 1].classList.add('animation', 'animation--time', 'animation__slideFromRightToLeft', 'activePortrait');
       portraitImages[i].classList.add('animation', 'animation--time', 'animation__slideFromZeroToLeft');
-      setTimeout(function () { portraitImages[i].classList.remove('animation', 'animation--time', 'animation__slideFromZeroToLeft') }, time);
-      portraitImages[i + 1].classList.remove('portraitHidden');
-      portraitImages[i + 1].classList.add('animation', 'animation--time', 'animation__slideFromRightToLeft');
-      setTimeout(function () { portraitImages[i + 1].classList.remove('animation', 'animation--time', 'animation__slideFromRightToLeft') }, time);
+      setTimeout(function () { portraitImages[i].setAttribute('class', 'portraits') }, time);
       break;
     }
   }
@@ -38,29 +31,21 @@ function nextPortrait () {
 function previousPortrait () {
   for (let i = 0; i < portraitImages.length; i++) {
     if (!emptyPortrait.classList.contains('portraitHidden')) {
+      portraitImages[portraitImages.length - 1].classList.add('animation', 'animation--time', 'animation__slideFromLeftToRight', 'activePortrait');
       emptyPortrait.classList.add('animation', 'animation--time', 'animation__slideFromZeroToRight');
-      setTimeout(function () { emptyPortrait.classList.add('portraitHidden') }, time);
-      portraitImages[portraitImages.length - 1].classList.remove('portraitHidden');
-      portraitImages[portraitImages.length - 1].classList.add('animation', 'animation--time', 'animation__slideFromLeftToRight');
-      setTimeout(function () { portraitImages[portraitImages.length - 1].classList.remove('animation', 'animation--time', 'animation__slideFromLeftToRight') }, time);
-      break;
-    };
-    if (!portraitImages[0].classList.contains('portraitHidden')) {
-      setTimeout(function () { portraitImages[0].classList.add('portraitHidden') }, time);
-      portraitImages[0].classList.add('animation', 'animation--time', 'animation__slideFromZeroToRight');
-      setTimeout(function () { portraitImages[0].classList.remove('animation', 'animation--time', 'animation__slideFromZeroToRight') }, time);
-      portraitImages[portraitImages.length - 1].classList.remove('portraitHidden');
-      portraitImages[portraitImages.length - 1].classList.add('animation', 'animation--time', 'animation__slideFromLeftToRight');
-      setTimeout(function () { portraitImages[portraitImages.length - 1].classList.remove('animation', 'animation--time', 'animation__slideFromLeftToRight') }, time);
+      setTimeout(function () { emptyPortrait.setAttribute('class', 'emptyPortrait portraitHidden') }, time);
       break;
     }
-    if (!portraitImages[i].classList.contains('portraitHidden')) {
-      setTimeout(function () { portraitImages[i].classList.add('portraitHidden') }, time);
-      portraitImages[i].classList.add('animation', 'animation--time', 'animation__slideFromZeroToRight');
-      setTimeout(function () { portraitImages[i].classList.remove('animation', 'animation--time', 'animation__slideFromZeroToRight') }, time)
-      portraitImages[i - 1].classList.remove('portraitHidden');
-      portraitImages[i - 1].classList.add('animation', 'animation--time', 'animation__slideFromLeftToRight');
-      setTimeout(function () { portraitImages[i - 1].classList.remove('animation', 'animation--time', 'animation__slideFromLeftToRight') }, time);
+    if (portraitImages[0].classList.contains('activePortrait')) {
+      portraitImages[portraitImages.length - 1].setAttribute('class', 'portraits animation animation--time animation__slideFromLeftToRight activePortrait');
+      portraitImages[0].setAttribute('class', 'portraits animation animation--time animation__slideFromZeroToRight');
+      setTimeout(function () { portraitImages[0].setAttribute('class', 'portraits') }, time);
+      break;
+    }
+    if (portraitImages[i].classList.contains('activePortrait')) {
+      portraitImages[i - 1].setAttribute('class', 'portraits animation animation--time animation__slideFromLeftToRight activePortrait');
+      portraitImages[i].setAttribute('class', 'portraits animation animation--time animation__slideFromZeroToRight');
+      setTimeout(function () { portraitImages[i].setAttribute('class', 'portraits') }, time);
       break;
     }
   }
