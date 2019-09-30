@@ -76,11 +76,12 @@ fieldset {
   margin: 2px;
   overflow: hidden;
   position: relative;
+  display: flex;
 }
 
 .charPortrait img {
-  max-width: 100%;
-  max-height: 100%;
+  width: 100%;
+  object-fit: cover;
 }
 
 .portraitHidden {
