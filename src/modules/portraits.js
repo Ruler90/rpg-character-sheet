@@ -28,6 +28,9 @@ function nextPortrait () {
   }
 }
 
+const nextImgBtn = document.querySelector('.nextImgBtn');
+nextImgBtn.addEventListener('click', nextPortrait);
+
 function previousPortrait () {
   for (let i = 0; i < portraitImages.length; i++) {
     if (!emptyPortrait.classList.contains('portraitHidden')) {
@@ -50,3 +53,6 @@ function previousPortrait () {
     }
   }
 }
+
+const prevImgBtn = document.querySelector('.prevImgBtn');
+prevImgBtn.addEventListener('click', previousPortrait);

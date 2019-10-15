@@ -2,6 +2,10 @@
 /* eslint-disable space-before-function-paren */
 /* eslint-disable semi */
 
+// need to use import to make webpack bundle all files
+import { } from './modules/description.js'
+import { } from './modules/portraits.js'
+
 const ourCharacter = {
   attributes: {},
   stats: {},
@@ -176,18 +180,27 @@ function generateRandom() {
   charStatsChange()
 }
 
-function addAttr(n) {
-  if (document.querySelector('#attr' + n).value < 20 && document.querySelector('#pointsLeft').value > 0) {
-    document.querySelector('#attr' + n).value++;
-    document.querySelector('#pointsLeft').value--;
-    charStatsChange()
-  }
+const randomButton = document.querySelector('.randomButton');
+randomButton.addEventListener('click', generateRandom);
+
+for (let i = 1; i < 5; i++) {
+  const addAttrBtn = document.querySelector('.addAttr' + i + 'Btn');
+  addAttrBtn.addEventListener('click', function addAttr () {
+    if (document.querySelector('#attr' + i).value < 20 && document.querySelector('#pointsLeft').value > 0) {
+      document.querySelector('#attr' + i).value++;
+      document.querySelector('#pointsLeft').value--;
+      charStatsChange()
+    }
+  });
 }
 
-function subtractAttr(n) {
-  if (document.querySelector('#attr' + n).value > charInit['attr' + n + 'Init'] && document.querySelector('#pointsLeft').value < 10) {
-    document.querySelector('#attr' + n).value--;
-    document.querySelector('#pointsLeft').value++
-    charStatsChange()
-  }
+for (let i = 1; i < 5; i++) {
+  const substrAttrBtn = document.querySelector('.substrAttr' + i + 'Btn');
+  substrAttrBtn.addEventListener('click', function subtractAttr() {
+    if (document.querySelector('#attr' + i).value > charInit['attr' + i + 'Init'] && document.querySelector('#pointsLeft').value < 10) {
+      document.querySelector('#attr' + i).value--;
+      document.querySelector('#pointsLeft').value++
+      charStatsChange()
+    }
+  });
 }

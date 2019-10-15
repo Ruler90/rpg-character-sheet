@@ -1,6 +1,16 @@
 
 ###################################
 
+v1.0.6 - 15.10.2019
+
+- Zmieniłem strukturę katalogów.
+
+- Usunąłem HTMLowe onclicki i zastąpiłem je eventListenerami. W przypadku buttonów + / - dodałem for loop z eventListenerami i połączyłem to od razu z funkcjami, które są dodawane do tych buttonów.
+
+- Za pomocą Webpacka zbundlowałem pliki .js. Trzeba było dodać import do index.js (nawet jeśli żadne zmienne/fn nie były używane między plikami), bo inaczej Webpack brał tylko index.js.
+
+###################################
+
 v1.0.5 - 01.10.2019
 
 - Dodałem poprawiony, krótszy kod JS dla zmiany portretów. Nie opiera się on już na klasie hidden i dodawaniu display: none do wszystkich niewidocznych slajdów. Teraz widoczny slajd dostaje klasę activePortrait i animacje są dodawane do następnego/poprzedniego elementu w zależności od tego, czy ma się pojawić następny czy poprzedni portret.

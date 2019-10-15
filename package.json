@@ -1,0 +1,23 @@
+{
+  "name": "rpg-character-sheet",
+  "version": "1.0.6",
+  "description": "Project started on July 2019 (don't remember when exactly) and finished on August 21, 2019.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Ruler90/rpg-character-sheet.git"
+  },
+  "author": "Ruler90",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Ruler90/rpg-character-sheet/issues"
+  },
+  "homepage": "https://github.com/Ruler90/rpg-character-sheet#readme",
+  "devDependencies": {
+    "webpack": "^4.41.2",
+    "webpack-cli": "^3.3.9"
+  }
+}

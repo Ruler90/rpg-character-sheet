@@ -7,9 +7,9 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Character Sheet</title>
 
-    <link rel="stylesheet" href="styles/main.css" type="text/css">
-    <link rel="stylesheet" href="styles/inputsAndButtons.css" type="text/css">
-    <link rel="stylesheet" href="styles/animations.css" type="text/css">
+    <link rel="stylesheet" href="./css/main.css" type="text/css">
+    <link rel="stylesheet" href="./css/inputsAndButtons.css" type="text/css">
+    <link rel="stylesheet" href="./css/animations.css" type="text/css">
 </head>
 
 <body>
@@ -32,28 +32,28 @@
 
             <fieldset class="fieldset__width">
                 <legend align="center">Attributes</legend>
-                <input type="button" value="Random" class="button--mainProperties randomButton flex--center" onclick="generateRandom()">
+                <input type="button" value="Random" class="button--mainProperties randomButton flex--center">
                 <div class="flex--center"><label>Points Left<input id="pointsLeft" type="text" value="10" disabled
                             class="attrValueInputs"></label></div>
                 <div class="flex--center"><label class="attributeLabel">Strength<input id="attr1" type="text" disabled
                             class="attrValueInputs"></label>
-                    <input type="button" class="button--mainProperties disabledBtn btnAddRemove" value="+" disabled onclick="addAttr(1)">
-                    <input type="button" class=" button--mainProperties disabledBtn btnAddRemove" value="-" disabled onclick="subtractAttr(1)">
+                    <input type="button" class="button--mainProperties disabledBtn btnAddRemove addAttr1Btn" value="+" disabled>
+                    <input type="button" class=" button--mainProperties disabledBtn btnAddRemove substrAttr1Btn" value="-" disabled>
                 </div>
                 <div class="flex--center"><label class="attributeLabel">Dexterity<input id="attr2" type="text" disabled
                             class="attrValueInputs"></label>
-                    <input type="button" class="button--mainProperties disabledBtn btnAddRemove" value="+" disabled onclick="addAttr(2)">
-                    <input type="button" class="button--mainProperties disabledBtn btnAddRemove" value="-" disabled onclick="subtractAttr(2)">
+                    <input type="button" class="button--mainProperties disabledBtn btnAddRemove addAttr2Btn" value="+" disabled>
+                    <input type="button" class="button--mainProperties disabledBtn btnAddRemove substrAttr2Btn" value="-" disabled>
                 </div>
                 <div class="flex--center"><label class="attributeLabel">Stamina<input id="attr3" type="text" disabled
                             class="attrValueInputs"></label>
-                    <input type="button" class="button--mainProperties disabledBtn btnAddRemove" value="+" disabled onclick="addAttr(3)">
-                    <input type="button" class="button--mainProperties disabledBtn btnAddRemove" value="-" disabled onclick="subtractAttr(3)">
+                    <input type="button" class="button--mainProperties disabledBtn btnAddRemove addAttr3Btn" value="+" disabled>
+                    <input type="button" class="button--mainProperties disabledBtn btnAddRemove substrAttr3Btn" value="-" disabled>
                 </div>
                 <div class="flex--center"><label class="attributeLabel">Intelligence<input id="attr4" type="text"
                             disabled class="attrValueInputs"></label>
-                    <input type="button" class="button--mainProperties disabledBtn btnAddRemove" value="+" disabled onclick="addAttr(4)">
-                    <input type="button" class="button--mainProperties disabledBtn btnAddRemove" value="-" disabled onclick="subtractAttr(4)">
+                    <input type="button" class="button--mainProperties disabledBtn btnAddRemove addAttr4Btn" value="+" disabled>
+                    <input type="button" class="button--mainProperties disabledBtn btnAddRemove substrAttr4Btn" value="-" disabled>
                 </div>
             </fieldset>
 
@@ -101,7 +101,7 @@
             </fieldset>
 
             <div class="imgBox">
-                <input type="button" class="button--mainProperties changeImgBtn" value="&larr;" onclick="previousPortrait()"/>
+                <input type="button" class="button--mainProperties changeImgBtn prevImgBtn" value="&larr;"/>
                 <div class="charPortrait">
                     <img src="img/emptyPortrait.jpg" class="emptyPortrait" alt="empty character portrait">
                     <img src="img/Males/Male_01_by_Dropdeadcoheed.jpg" class="portraits" alt="character portrait">
@@ -129,7 +129,7 @@
                     <img src="img/Females/Female_11_by_greyhues.jpg" class="portraits" alt="character portrait">
                     <img src="img/Females/Female_12_by_000Fesbra000.jpg" class="portraits" alt="character portrait">
                 </div>
-                <input type="button" class="button--mainProperties changeImgBtn" value="&rarr;" onclick="nextPortrait()" />
+                <input type="button" class="button--mainProperties changeImgBtn nextImgBtn" value="&rarr;"/>
                 <div class="animation--time"></div>
             </div>
 
@@ -185,9 +185,10 @@
         </div>
     </main>
 
-    <script src="scripts/charAttributes.js"></script>
-    <script src="scripts/portraits.js"></script>
-    <script src="scripts/description.js"></script>
+    <!-- <script src="./index.js"></script>
+    <script src="./modules/portraits.js"></script>
+    <script src="./modules/description.js"></script> -->
+    <script src="../dist/main.js"></script>
 
 </body>
 
